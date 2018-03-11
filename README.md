@@ -5,6 +5,9 @@ Welcome to the United States Geological Survey, or USGS for short! The USGS is r
 
 The USGS is interested in building a new set of tools that will allow them visualize their earthquake data.Their hope is that being able to visualize their data will allow them to better educate the public and other government organizations (and hopefully secure more funding..) on issues facing our planet.
 
+
+![picture](Image/earthquake.png)
+
 Step 1: Basic Visualization
 
  * Get your data set,
@@ -22,3 +25,5 @@ Step 2: More Data
     *Plot a second data set on our map,
     *Add a number of base maps to choose from as well as separate out our two different data sets into overlays that can be turned on and off independently,
     *Add layer controls to our map.
+    
+   ## Hint: mapbox in bootstrap:   https://github.com/charliedotau/mapbox-gl-js-bootstrap-boilerplate
