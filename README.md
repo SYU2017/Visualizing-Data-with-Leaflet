@@ -6,7 +6,7 @@ Welcome to the United States Geological Survey, or USGS for short! The USGS is r
 The USGS is interested in building a new set of tools that will allow them visualize their earthquake data.Their hope is that being able to visualize their data will allow them to better educate the public and other government organizations (and hopefully secure more funding..) on issues facing our planet.
 
 
-![picture](Image/earthquake.png)
+![picture](earthquake.png)
 
 Step 1: Basic Visualization
 
