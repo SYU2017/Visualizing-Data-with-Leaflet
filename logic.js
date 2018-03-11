@@ -40,7 +40,7 @@ function createFeatures(earthquakeData) {
 function createMap(earthquakes) {
 
   var satelliteMap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v9/tiles/256/{z}/{x}/{y}?"+
-    "access_token=pk.eyJ1Ijoic3l1MjAxOCIsImEiOiJjamNzYmFjbmEwYWJqMzNxcWJ6dnhoaGlxIn0."+"qFH3N3Fi6rXHsoGsi8BtjA");
+    "access_token=pk.eyJ1Ijoic3l1MjAxOCIsImEiOiJjamNzYmFjbmEwYWJqMzNxcWJ6dnhoaGlxIn0.qFH3N3Fi6rXHsoGsi8BtjA");
 
 
   // Define streetmap and darkmap layers
@@ -54,6 +54,7 @@ function createMap(earthquakes) {
   // Define a baseMaps object to hold our base layers
   var baseMaps = {
     "Satellite Map": satelliteMap,
+
     "Outdoor Map": outdoorMap,
     "Light Map": lightMap
   };
@@ -71,46 +72,46 @@ function createMap(earthquakes) {
     center: [
       37.09, -95.71],
     zoom: 5,
-    layers: [lightMap, earthquakes, tectonicPlates]
+    layers: [lightMap]
   });
 
   // Add Fault lines data
-   d3.json(TectonicPlatesUrl, function(plateData) {
-     // Adding our geoJSON data, along with style information, to the tectonicplates layer.
-     L.geoJson(plateData, {
-       color: "green",
-       weight: 2
-     })
-     .addTo(tectonicPlates);
-   });
+  d3.json(TectonicPlatesUrl, function(plateData) {
+      // Adding our geoJSON data, along with style information, to the tectonicplates layer.
+      L.geoJson(plateData, {
+        color: "green",
+        weight: 2
+      })
+      .addTo(tectonicPlates);
+  });
 
-  // Create a layer control
-  // Pass in our baseMaps and overlayMaps
-  // Add the layer control to the map
+   //Create a layer control
+   //Pass in our baseMaps and overlayMaps
+   //Add the layer control to the map
   L.control.layers(baseMaps, overlayMaps, {
     collapsed: false
   }).addTo(myMap);
 
 
-// Create legend
-  var legend = L.control({position: 'bottomright'});
+ // Create legend
+   var legend = L.control({position: 'bottomright'});
 
-  legend.onAdd = function (myMap) {
+   legend.onAdd = function (myMap) {
 
-    var div = L.DomUtil.create('div', 'info legend'),
-              grades = [0, 1, 2, 3, 4, 5],
-              labels = [];
+     var div = L.DomUtil.create('div', 'info legend'),
+               grades = [0, 1, 2, 3, 4, 5],
+               labels = [];
 
-  // loop through our density intervals and generate a label with a colored square for each interval
-    for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    }
-    return div;
-  };
+   // loop through our density intervals and generate a label with a colored square for each interval
+     for (var i = 0; i < grades.length; i++) {
+         div.innerHTML +=
+             '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+             grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+     }
+     return div;
+   };
 
-  legend.addTo(myMap);
+   legend.addTo(myMap);
 }
 
 function getColor(d) {
@@ -125,3 +126,5 @@ function getColor(d) {
 function getRadius(value){
   return value*40000
 }
+
+// bootstrap with mapbox  (https://github.com/charliedotau/mapbox-gl-js-bootstrap-boilerplate)
