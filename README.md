@@ -1,6 +1,8 @@
 # Visualizing-Data-with-Leaflet
 Visualizing Earthquake Data from United States Geological Survey
 
+https://syu2017.github.io/Visualizing-Data-with-Leaflet/
+
 Welcome to the United States Geological Survey, or USGS for short! The USGS is responsible for providing scientific data about natural hazards, the health of our ecosystems and environment; and the impacts of climate and land-use change. Their scientists develop new methods and tools to supply timely, relevant, and useful information about the Earth and its processes. As a new hire, you will be helping them out with an exciting new project!
 
 The USGS is interested in building a new set of tools that will allow them visualize their earthquake data.Their hope is that being able to visualize their data will allow them to better educate the public and other government organizations (and hopefully secure more funding..) on issues facing our planet.
